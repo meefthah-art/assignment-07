@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* our own theme, colors are from the Penpot design */
+@plugin "daisyui/theme" {
+  name: "bazardor";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #fafcfa;
+  --color-base-200: #f0f5f0;
+  --color-base-300: #e1e8e1;
+  --color-base-content: #1d271f;
+  --color-primary: #05893e;
+  --color-primary-content: #f3fbf4;
+  --color-secondary: #1a9951;
+  --color-secondary-content: #ffffff;
+  --color-accent: #f59e0b;
+  --color-accent-content: #1d271f;
+  --color-neutral: #1d271f;
+  --color-neutral-content: #fafcfa;
+  --color-info: #2563eb;
+  --color-info-content: #ffffff;
+  --color-success: #1a9951;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #1d271f;
+  --color-error: #d03739;
+  --color-error-content: #fff6f5;
+  --radius-selector: 1rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --border: 1px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fafcfa;
+  color: #1d271f;
+}
+
+/* price ticker (marquee) */
+.ticker-track {
+  animation: ticker-move 90s linear infinite;
+}
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+@keyframes ticker-move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* hide scrollbar for the category row on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
