@@ -26,10 +26,23 @@ const githubKeys =
       }
     : {};
 
+// the address of our site
+// on Vercel we use the live address, on the computer we use BETTER_AUTH_URL (localhost)
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? "https://" + process.env.VERCEL_PROJECT_PRODUCTION_URL
+  : process.env.BETTER_AUTH_URL || "http://localhost:3000";
+
+// addresses that are allowed to call the login api
+const trustedOrigins = [siteUrl, "https://assignment-07-sandy.vercel.app"];
+if (process.env.VERCEL_URL) {
+  trustedOrigins.push("https://" + process.env.VERCEL_URL);
+}
+
 export const auth = betterAuth({
   ...(db ? { database: db } : {}),
   secret: process.env.BETTER_AUTH_SECRET,
-  baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+  baseURL: siteUrl,
+  trustedOrigins: trustedOrigins,
   emailAndPassword: {
     enabled: true,
     // after sign up the user goes to the login page
