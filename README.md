@@ -81,5 +81,5 @@ Base URL: `https://api.abcz.workers.dev/api/bazardor`
 
 Deployed on Vercel. Add all the environment variables in **Project Settings → Environment Variables** and set `BETTER_AUTH_URL` to the live link.
 
-- Live link: https://assignment-07-sandy.vercel.app/
-- GitHub repository: https://github.com/meefthah-art/assignment-07.git
+Live Link: https://assignment-07-sandy.vercel.app
+GitHub Repository Link: https://github.com/meefthah-art/assignment-07
